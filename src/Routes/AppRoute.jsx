@@ -1,9 +1,9 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { NavBar } from "../components/NavBar";
-import { AboutPage } from "../pages/About/views/AboutPage";
-import { HomePage } from "../pages/Home/views/HomePage";
-import { ReservationPage } from "../pages/Reservations/views/ReservationPage";
-import { ServicePage } from "../pages/Service/views/ServicePage";
+import { AboutRoutes } from "../pages/About/routes/AboutRoutes";
+import { HomeRoutes } from "../pages/Home/routes/HomeRoutes";
+import { ReservationsRoutes } from "../pages/Reservations/routes/ReservationsRoutes";
+import { ServiceRoutes } from "../pages/Service/routes/ServiceRoutes";
 
 export const AppRoute = () => {
   return (
@@ -11,12 +11,11 @@ export const AppRoute = () => {
       <NavBar />
       <div className="container-void" />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/reservation" element={<ReservationPage />} />
-        <Route path="/service" element={<ServicePage />} />
+        <Route path="/*" element={<HomeRoutes />} />
+        <Route path="/about/*" element={<AboutRoutes />} />
+        <Route path="/reservation/*" element={<ReservationsRoutes />} />
+        <Route path="/service/*" element={<ServiceRoutes />} />
 
-        <Route path="/*" element={<Navigate to="/" />} />
         {/* Auth Section */}
         {/* <Route path="/login" element={<LoginPage />}/>
         <Route path="/register" element={<RegisterPage />}/> */}
